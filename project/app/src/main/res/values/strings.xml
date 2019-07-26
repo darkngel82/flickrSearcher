@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FlickrSearcher</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- Splash -->
+    <string name="splash_label">by Daniel Nuñez</string>
+    <string name="splash_label_2">dnunezv82@gmail.com</string>
+
 </resources>
