@@ -5,4 +5,9 @@
     <string name="splash_label">by Daniel Nuñez</string>
     <string name="splash_label_2">dnunezv82@gmail.com</string>
 
+
+    <!-- Search -->
+    <string name="search_no_result">No result found</string>
+    <string name="search_enter_text_hint">Enter text to search images</string>
+
 </resources>

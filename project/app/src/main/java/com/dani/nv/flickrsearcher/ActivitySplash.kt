@@ -48,8 +48,8 @@ class ActivitySplash : AppCompatActivity() {
     }
 
     private fun openSearch() {
-        //TODO: Open search activity with no results view
-        Toast.makeText(this@ActivitySplash, "TODO: Open search activity with no results view", Toast.LENGTH_SHORT).show()
+        startActivity(ActivitySearch.newIntent(this@ActivitySplash))
+        finish()
     }
 
 
