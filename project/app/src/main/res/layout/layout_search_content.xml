@@ -8,7 +8,7 @@
         android:background="@color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_search"
-        tools:context=".ActivitySearch">
+        tools:context=".ui.activities.ActivitySearch">
 
     <android.support.v7.widget.RecyclerView android:id="@+id/rvContent"
                                             android:layout_height="match_parent"

@@ -7,7 +7,7 @@
         android:layout_height="0dp"
         android:background="@color/white"
         tools:showIn="@layout/activity_search"
-        tools:context=".ActivitySearch">
+        tools:context=".ui.activities.ActivitySearch">
 
     <ImageView android:id="@+id/imgContent"
                app:layout_constraintStart_toStartOf="parent"
