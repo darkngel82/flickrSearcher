@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import com.dani.nv.flickrsearcher.R
+import com.dani.nv.flickrsearcher.utils.Commons
 import com.facebook.drawee.view.SimpleDraweeView
 import com.flickr4java.flickr.photos.Photo
 import com.flickr4java.flickr.photos.PhotoList
@@ -24,7 +25,7 @@ class FlickrImageAdapter(private val photos: PhotoList<Photo>) :
 
     override fun onBindViewHolder(viewHolder: FlickrViewHolder, p1: Int) {
          photos[p1]?.let { photo ->
-            viewHolder.imgFlickr.setImageURI(getFlickrImageUrl(photo))
+            viewHolder.imgFlickr.setImageURI(Commons().getFlickrImageUrl(photo))
         }
     }
 
@@ -33,11 +34,4 @@ class FlickrImageAdapter(private val photos: PhotoList<Photo>) :
         internal var imgFlickr: SimpleDraweeView = itemView.findViewById(R.id.imgResult)
 
     }
-
-
-    fun getFlickrImageUrl(photo: Photo): String {
-        //flicker api doesn't return the image url, and it must be build
-        return "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg"
-    }
-
 }
