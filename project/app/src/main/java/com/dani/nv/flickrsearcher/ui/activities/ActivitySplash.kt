@@ -1,10 +1,10 @@
-package com.dani.nv.flickrsearcher
+package com.dani.nv.flickrsearcher.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.Toast
+import com.dani.nv.flickrsearcher.R
 import kotlinx.android.synthetic.main.activity_splash.*
 
 /**
@@ -48,8 +48,8 @@ class ActivitySplash : AppCompatActivity() {
     }
 
     private fun openSearch() {
-        //TODO: Open search activity with no results view
-        Toast.makeText(this@ActivitySplash, "TODO: Open search activity with no results view", Toast.LENGTH_SHORT).show()
+        startActivity(ActivitySearch.newIntent(this@ActivitySplash))
+        finish()
     }
 
 

@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">FlickrSearcher</string>
 
+    <!-- General Strings-->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Error messages-->
+    <string name="diag_error_title">Error</string>
+    <string name="diag_error_no_internet">Internet is required to obtain results</string>
+    <string name="diag_error_appear">Unknow error</string>
+
     <!-- Splash -->
     <string name="splash_label">by Daniel Nuñez</string>
     <string name="splash_label_2">dnunezv82@gmail.com</string>
+
+    <!-- Search -->
+    <string name="search_no_result">No result found</string>
+    <string name="search_enter_text_hint">Enter text to search images</string>
 
 </resources>
