@@ -5,13 +5,15 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
+import android.widget.AdapterView
 import com.dani.nv.flickrsearcher.R
+import com.dani.nv.flickrsearcher.interfaces.ItemClickListener
 import com.dani.nv.flickrsearcher.utils.Commons
 import com.facebook.drawee.view.SimpleDraweeView
 import com.flickr4java.flickr.photos.Photo
 import com.flickr4java.flickr.photos.PhotoList
 
-class FlickrImageAdapter(private val photos: PhotoList<Photo>) :
+class FlickrImageAdapter(private val photos: PhotoList<Photo>, private val itemClickListener: ItemClickListener) :
     RecyclerView.Adapter<FlickrImageAdapter.FlickrViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, pos: Int): FlickrViewHolder {
@@ -26,6 +28,9 @@ class FlickrImageAdapter(private val photos: PhotoList<Photo>) :
     override fun onBindViewHolder(viewHolder: FlickrViewHolder, p1: Int) {
          photos[p1]?.let { photo ->
             viewHolder.imgFlickr.setImageURI(Commons().getFlickrImageUrl(photo))
+             viewHolder.itemView.setOnClickListener {
+                 itemClickListener.itemClicked(photo)
+             }
         }
     }
 

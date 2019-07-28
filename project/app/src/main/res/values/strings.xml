@@ -19,4 +19,10 @@
     <string name="search_no_result">No result found</string>
     <string name="search_enter_text_hint">Enter text to search images</string>
 
+    <!-- Detail -->
+    <string name="detail_no_title">No title</string>
+    <string name="detail_no_username">Unknow username</string>
+    <string name="detail_no_date">Unknow date</string>
+    <string name="detail_no_description">Without description</string>
+
 </resources>
