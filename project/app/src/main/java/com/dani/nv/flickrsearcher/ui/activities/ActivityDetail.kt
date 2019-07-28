@@ -9,7 +9,6 @@ import android.widget.TextView
 import com.dani.nv.flickrsearcher.R
 import com.dani.nv.flickrsearcher.utils.Commons
 import com.flickr4java.flickr.photos.Photo
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail.*
 import java.text.SimpleDateFormat
 

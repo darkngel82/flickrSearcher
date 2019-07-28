@@ -19,8 +19,8 @@ class ActivityFullscreen : AppCompatActivity() {
     private var photoTitle: String? = null
 
     companion object {
-        val PARAM_PHOTO_URL = "param_photo_url"
-        val PARAM_PHOTO_TITLE = "param_photo_title"
+       const val PARAM_PHOTO_URL = "param_photo_url"
+       const val PARAM_PHOTO_TITLE = "param_photo_title"
 
         fun newIntent(ctx: Context, url: String, title: String?): Intent {
             val i = Intent(ctx, ActivityFullscreen::class.java)
@@ -51,7 +51,7 @@ class ActivityFullscreen : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun showImageOrEnd() {
+    private fun showImageOrEnd() {
         photoURL?.let {
             val ctrl = Fresco.newDraweeControllerBuilder().setUri(Uri.parse(it)).setTapToRetryEnabled(true).build()
             val hierarchy = GenericDraweeHierarchyBuilder(resources)

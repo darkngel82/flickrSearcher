@@ -3,31 +3,30 @@ package com.dani.nv.flickrsearcher.ui.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.dani.nv.flickrsearcher.R
-import com.dani.nv.flickrsearcher.constants.*
-import kotlinx.android.synthetic.main.activity_search.*
-import kotlinx.android.synthetic.main.layout_search_appbar.*
-import android.util.Log
+import com.dani.nv.flickrsearcher.adapters.FlickrImageAdapter
+import com.dani.nv.flickrsearcher.constants.Constants
+import com.dani.nv.flickrsearcher.interfaces.ItemClickListener
 import com.dani.nv.flickrsearcher.ui.widgets.CustomDiag
+import com.dani.nv.flickrsearcher.utils.Commons
 import com.flickr4java.flickr.Flickr
 import com.flickr4java.flickr.REST
 import com.flickr4java.flickr.photos.Photo
 import com.flickr4java.flickr.photos.PhotoList
 import com.flickr4java.flickr.photos.SearchParameters
-import androidx.recyclerview.widget.GridLayoutManager
-import com.dani.nv.flickrsearcher.adapters.FlickrImageAdapter
-import com.dani.nv.flickrsearcher.interfaces.ItemClickListener
-import com.dani.nv.flickrsearcher.utils.Commons
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.layout_search_appbar.*
 import kotlinx.android.synthetic.main.layout_search_content.*
 
 
@@ -65,7 +64,7 @@ class ActivitySearch : AppCompatActivity(), ItemClickListener {
     //init the Photolist to void state
     private fun initPhotoArray() {
         photos = PhotoList()
-        rvContent.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 3)
+        rvContent.layoutManager = GridLayoutManager(this, 3)
     }
 
 
@@ -144,7 +143,7 @@ class ActivitySearch : AppCompatActivity(), ItemClickListener {
 
                     val searchParameters = SearchParameters()
                     searchParameters.text = queryString
-                    searchParameters.extras = mutableSetOf<String>("url_o")
+
                     photos = flickrClient.photosInterface.search(searchParameters, 0, 1)
                 } catch (ex: Exception) {
                     refreshUIState(ViewState.NODATA)
