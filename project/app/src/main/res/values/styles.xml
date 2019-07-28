@@ -20,6 +20,9 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+    </style>
     <!-- CUSTOM STYLES FOR SPLASH-->
     <style name="SplashLabels" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@color/flickr_blue</item>

@@ -22,6 +22,7 @@ import com.flickr4java.flickr.photos.PhotoList
 import com.flickr4java.flickr.photos.SearchParameters
 import android.support.v7.widget.GridLayoutManager
 import com.dani.nv.flickrsearcher.adapters.FlickrImageAdapter
+import com.dani.nv.flickrsearcher.interfaces.ItemClickListener
 import com.dani.nv.flickrsearcher.utils.Commons
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -30,7 +31,8 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.layout_search_content.*
 
 
-class ActivitySearch : AppCompatActivity() {
+class ActivitySearch : AppCompatActivity(), ItemClickListener {
+
 
     //enum that represents the current state of the ui
     enum class ViewState {
@@ -128,9 +130,10 @@ class ActivitySearch : AppCompatActivity() {
         }
     }
 
+    //uses the flickrclient to search the string selected
     private fun searchByStringRX() {
         refreshUIState(ViewState.LOADING)
-        if(Commons().isNetworkAvailable(this@ActivitySearch)){
+        if (Commons().isNetworkAvailable(this@ActivitySearch)) {
 
             searchDisposable = Observable.fromCallable {
                 try {
@@ -157,26 +160,32 @@ class ActivitySearch : AppCompatActivity() {
                     showValues()
                 }
 
-        }else{
+        } else {
             errorReceived(getString(R.string.diag_error_no_internet))
         }
 
     }
-    
+
+    //draws the results on the recycledlist
     private fun showValues() {
         photos?.let { photoList ->
             if (photoList.isEmpty()) refreshUIState(ViewState.NODATA)
             else {
-                rvContent.adapter = FlickrImageAdapter(photoList)
+                rvContent.adapter = FlickrImageAdapter(photoList, this)
                 refreshUIState(ViewState.DATASHOW)
             }
         }
     }
 
+    //logs the error and show alert with the message
     private fun errorReceived(message: String) {
         Log.d(this@ActivitySearch::javaClass.name, message)
         CustomDiag().showErrorDialog(this@ActivitySearch, message)
     }
 
+    //open the detail of the photo selected
+    override fun itemClicked(photo: Photo) {
+        startActivity(ActivityDetail.newIntent(this@ActivitySearch, photo))
+    }
 
 }

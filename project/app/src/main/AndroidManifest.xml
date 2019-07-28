@@ -3,7 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.dani.nv.flickrsearcher">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
@@ -28,11 +28,11 @@
             </intent-filter>
         </activity>
 
-        <activity
-                android:name=".ui.activities.ActivitySearch"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <activity android:name=".ui.activities.ActivitySearch"
+                  android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name=".ui.activities.ActivityDetail"
+                  android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
