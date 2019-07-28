@@ -2,7 +2,7 @@ package com.dani.nv.flickrsearcher.ui.activities
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
@@ -73,9 +73,11 @@ class ActivityDetail : AppCompatActivity() {
         supportActionBar?.title = photoTitle
 
         //photoUrl is a required field, if it's null, then finish
-        photoUrl?.let {
-            imgContent.setImageURI(it)
+        photoUrl?.let { url ->
+            imgContent.setImageURI(url)
+            imgContent.setOnClickListener { startActivity(ActivityFullscreen.newIntent(this@ActivityDetail, url, photoTitle)) }
         } ?: run { finish() }
+
 
         showIfNotVoid(txtTitle, photoTitle, R.string.detail_no_title)
         showIfNotVoid(txtAuthor, photoUserName, R.string.detail_no_username)

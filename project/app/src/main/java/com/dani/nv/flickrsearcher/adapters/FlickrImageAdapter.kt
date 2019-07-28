@@ -1,7 +1,7 @@
 package com.dani.nv.flickrsearcher.adapters
 
-import android.support.v7.widget.CardView
-import android.support.v7.widget.RecyclerView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import com.flickr4java.flickr.photos.Photo
 import com.flickr4java.flickr.photos.PhotoList
 
 class FlickrImageAdapter(private val photos: PhotoList<Photo>, private val itemClickListener: ItemClickListener) :
-    RecyclerView.Adapter<FlickrImageAdapter.FlickrViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<FlickrImageAdapter.FlickrViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, pos: Int): FlickrViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.li_search_item, viewGroup, false)
@@ -34,8 +34,8 @@ class FlickrImageAdapter(private val photos: PhotoList<Photo>, private val itemC
         }
     }
 
-    class FlickrViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        internal var cv: CardView = itemView.findViewById(R.id.cvResult)
+    class FlickrViewHolder internal constructor(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+        internal var cv: androidx.cardview.widget.CardView = itemView.findViewById(R.id.cvResult)
         internal var imgFlickr: SimpleDraweeView = itemView.findViewById(R.id.imgResult)
 
     }

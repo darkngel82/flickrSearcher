@@ -15,7 +15,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".ui.activities.ActivityFullscreen">
+        </activity>
         <activity
                 android:name=".ui.activities.ActivitySplash"
                 android:configChanges="orientation|keyboardHidden|screenSize"
@@ -27,12 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.activities.ActivitySearch"
-                  android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".ui.activities.ActivityDetail"
-                  android:theme="@style/AppTheme"/>
+        <activity
+                android:name=".ui.activities.ActivitySearch"
+                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+                android:name=".ui.activities.ActivityDetail"
+                android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
