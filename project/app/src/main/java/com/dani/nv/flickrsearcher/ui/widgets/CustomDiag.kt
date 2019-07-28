@@ -2,7 +2,7 @@ package com.dani.nv.flickrsearcher.ui.widgets
 
 import android.app.Activity
 import android.content.Context
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import com.dani.nv.flickrsearcher.R
 
 class CustomDiag() {

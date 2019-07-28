@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
@@ -20,7 +20,7 @@ import com.flickr4java.flickr.REST
 import com.flickr4java.flickr.photos.Photo
 import com.flickr4java.flickr.photos.PhotoList
 import com.flickr4java.flickr.photos.SearchParameters
-import android.support.v7.widget.GridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.dani.nv.flickrsearcher.adapters.FlickrImageAdapter
 import com.dani.nv.flickrsearcher.interfaces.ItemClickListener
 import com.dani.nv.flickrsearcher.utils.Commons
@@ -65,7 +65,7 @@ class ActivitySearch : AppCompatActivity(), ItemClickListener {
     //init the Photolist to void state
     private fun initPhotoArray() {
         photos = PhotoList()
-        rvContent.layoutManager = GridLayoutManager(this, 3)
+        rvContent.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 3)
     }
 
 
